@@ -2,14 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Aatika's Landing Page</title>
+  <title>Temperature Converter</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Welcome to Aatika's Site</h1>
-    <p>This is a simple landing page created for Oasis Infobyte Internship.</p>
-    <button>Get Started</button>
-  </header>
+  <div class="container">
+    <h1> Temperature Converter</h1>
+    
+    <input type="number" id="tempInput" placeholder="Enter temperature" />
+
+    <select id="conversionType">
+      <option value="CtoF">Celsius to Fahrenheit</option>
+      <option value="FtoC">Fahrenheit to Celsius</option>
+    </select>
+
+    <button onclick="convertTemperature()">Convert</button>
+
+    <p id="result"></p>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
