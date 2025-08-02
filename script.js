@@ -1,20 +1,26 @@
-function convertTemperature() {
-  const temp = parseFloat(document.getElementById("tempInput").value);
-  const conversion = document.getElementById("conversionType").value;
-  const result = document.getElementById("result");
+function addTask() {
+  const input = document.getElementById('taskInput');
+  const taskText = input.value.trim();
 
-  if (isNaN(temp)) {
-    result.innerText = "⚠️ Please enter a valid number.";
+  if (taskText === '') {
+    alert("Please enter a task!");
     return;
   }
 
-  let converted;
+  const li = document.createElement('li');
+  li.textContent = taskText;
 
-  if (conversion === "CtoF") {
-    converted = (temp * 9/5) + 32;
-    result.innerText = `${temp}°C = ${converted.toFixed(2)}°F`;
-  } else {
-    converted = (temp - 32) * 5/9;
-    result.innerText = `${temp}°F = ${converted.toFixed(2)}°C`;
+  li.onclick = function () {
+    li.classList.toggle('done');
   }
+
+  const deleteBtn = document.createElement('button');
+  deleteBtn.textContent = '';
+  deleteBtn.onclick = function () {
+    li.remove();
+  }
+
+  li.appendChild(deleteBtn);
+  document.getElementById('taskList').appendChild(li);
+  input.value = '';
 }
